@@ -6,7 +6,6 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 
-
 class scanner:
     def __init__(self):
         self.operating_system = self.get_os()
@@ -20,7 +19,6 @@ class scanner:
             return "Linux"
         else:
             return "Unknown"
-
 
     def gen_port_list(self):
         return [str(port) for port in comports()]
@@ -53,10 +51,8 @@ class scanner:
                     self.add_teensy_device(_[0], 115200)
                 case _:
                     logging.warn(f"Device at port {_[0]} is unknown.")
-        
-    # def get_noze_sensor_info(self, port):
-    #     try:
 
+        return self.devices
 
     def add_noze_device(self, port, baudrate, version, sn):
         self.devices[f'NS-{self.ns_idx}'] = {'port': port, 'baudrate': baudrate, 'version': version, 'sn': sn}
@@ -72,12 +68,6 @@ class scanner:
         self.devices[f'TEENSY-{self.teensy_idx}'] = {'port': port, 'baudrate': 115200}
         self.teensy_idx = self.teensy_idx + 1
         logging.info(f'Added a new Teensy on port {port}.')
-        
-
-    #def identify_noze_sensors(self):
-        
-    
-    
 
 
 if __name__ == "__main__":
