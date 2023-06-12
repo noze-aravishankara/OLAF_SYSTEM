@@ -1,0 +1,7 @@
+{
+    "output_directory": "output",
+    "protocol_file": "src/config/test_protocol.yml",
+    "output_file_prefix": "s2_acetone_20ppm_trial1",
+    "project_name": "SENSOR_CHARACTERIZATION",
+    "devices": {}
+}
